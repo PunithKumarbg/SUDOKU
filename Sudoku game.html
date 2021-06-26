@@ -1,0 +1,443 @@
+ <!DOCTYPE html>
+<html>
+    <head>
+        <title>Sudoku</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Display:wght@500&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital@1&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+        <style>
+
+            #container{
+                display: grid;
+                grid-template-columns:repeat(9,11.1%);
+                margin-left: 1%;
+                margin-right: 60%;
+                margin-top: 4%;
+                margin-bottom: 4%;
+                border: 4px outset; 
+            }
+            input{
+                    height: 50px;
+                    text-align: center;
+                    font-size: 130%;
+                    margin: 2px;
+                    border-radius: 5px;
+                    background-color: #fff;
+
+            }
+            body{
+             
+                background-image: linear-gradient(to top left , #ff30f9 0%, #00d4ff 100% );
+                opacity: 0.9;
+
+
+            }
+
+
+
+
+            /* 3*3 box   */
+            input:nth-child( 3n) {
+          border-right:solid ;
+          border-right-color: black;
+      } 
+             input:nth-child( 27n+19) {
+          border-bottom:solid ;
+          border-bottom-color: black;
+      } 
+      input:nth-child( 27n+20) {
+          border-bottom:solid ;
+          border-bottom-color: black;
+      } 
+      input:nth-child( 27n+21) {
+          border-bottom:solid ;
+          border-bottom-color: black;
+      } 
+      input:nth-child( 27n+22) {
+          border-bottom:solid ;
+          border-bottom-color: black;
+      } 
+      input:nth-child( 27n+23) {
+          border-bottom:solid ;
+          border-bottom-color: black;
+      } 
+      input:nth-child( 27n+24) {
+          border-bottom:solid ;
+          border-bottom-color: black;
+      } 
+      input:nth-child( 27n+25) {
+          border-bottom:solid ;
+          border-bottom-color: black;
+      } 
+      input:nth-child( 27n+26) {
+          border-bottom:solid ;
+          border-bottom-color: black;
+      } 
+      input:nth-child( 27n+27) {
+          border-bottom:solid ;
+          border-bottom-color: black;
+      } 
+
+
+
+
+      /*cutom3*3 color for 1 5 9 */
+             input:nth-child(30n+1 ) {
+          border-left:solid ;
+          
+          background-color: palegreen;
+      }  
+      input:nth-child(30n+2 ) {
+          border-left:solid ;
+          
+          background-color: palegreen;
+      } 
+      input:nth-child(30n+3 ) {
+          border-left:solid ;
+          
+          background-color: palegreen;
+      } 
+      input:nth-child(30n+10 ) {
+          border-left:solid ;
+          
+          background-color: palegreen;
+      } 
+      input:nth-child(30n+11 ) {
+          border-left:solid ;
+          
+          background-color: palegreen;
+      } 
+      input:nth-child(30n+12 ) {
+          border-left:solid ;
+          
+          background-color: palegreen;
+      } 
+      input:nth-child(30n+19 ) {
+          border-left:solid ;
+          
+          background-color: palegreen;
+      } input:nth-child(30n+20 ) {
+          border-left:solid ;
+          
+          background-color: palegreen;
+      } 
+      input:nth-child(30n+21 ) {
+          border-left:solid ;
+          
+          background-color: palegreen;
+      } 
+
+
+
+      /* color for 3 7 */
+      input:nth-child(48n+7 ) {
+          border-left:solid ;
+          
+          background-color: palegreen;
+      }
+      input:nth-child(48n+8 ) {
+          border-left:solid ;
+          
+          background-color: palegreen;
+      }
+      input:nth-child(48n+9 ) {
+          border-left:solid ;
+          
+          background-color: palegreen;
+      }
+
+      input:nth-child(48n+16 ) {
+          border-left:solid ;
+          
+          background-color: palegreen;
+      }input:nth-child(48n+17 ) {
+          border-left:solid ;
+          
+          background-color: palegreen;
+      }
+      input:nth-child(48n+18 ) {
+          border-left:solid ;
+          
+          background-color: palegreen;
+      }
+      input:nth-child(48n+25 ) {
+          border-left:solid ;
+          
+          background-color: palegreen;
+      }
+      input:nth-child(48n+26 ) {
+          border-left:solid ;
+          
+          background-color: palegreen;
+      }
+      input:nth-child(48n+27 ) {
+          border-left:solid ;
+          
+          background-color: palegreen;
+      }
+
+      .glass {
+        background: rgba( 255, 255, 255, 0.25 );
+        box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+        backdrop-filter: blur( 4px );
+        -webkit-backdrop-filter: blur( 4px );
+        border-radius: 10px;
+        border: 1px solid rgba( 255, 255, 255, 0.18 );
+        float: right;
+        width: 550px;
+        height: 500px;
+        font-size: 25px;
+        margin-right: 4%;
+        margin-top: 3%;
+
+
+      }
+      p {
+        font-size: 30px;
+        text-align: center;
+      }
+      h2 {
+        font-family: 'Big Shoulders Stencil Display', cursive;
+        font-size: 50px;
+        letter-spacing: 5px;
+        margin-top: 2%;
+      }
+      p {
+        font-family: 'Crimson Text', serif;
+        font-size: 35px;
+      }
+      ol {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 20px;
+
+      }
+
+
+
+
+
+
+
+        </style>
+    </head>
+    <body>
+        <h2 style="text-align: center;">SUDOKU GAME</h2>
+        <div class="glass"> 
+            <p>Rules To Play</p> <br>
+            <ol>
+                <li>Sudoku Rule № 1: Use Numbers 1-9</li>
+                <br>
+                <li>Sudoku Rule № 2: Don’t Repeat Any Numbers</li>
+                <br>
+                <li>Sudoku Rule № 3: Don’t Guess</li>
+                <br>
+                <li>Sudoku Rule № 4: Use Process of Elimination</li>
+                <br>
+            </ol>
+            <p>PLAY AND WIN</p>
+        </div>
+        <div id="container" >
+
+        </div>
+
+    </body>
+</html>
+
+<script>
+
+    var sudoku=[[],[],[],[],[],[],[],[],[]];
+
+    //row=i col=j num=number
+    function isSafe(grid,row,col,num){
+
+    //check for row
+
+    for (var x = 0; x < 9; x++) {
+        
+        if (grid[row][x]==num) {
+
+            return false;
+        }
+
+    }
+
+//check for column
+
+    for (var y = 0; y <9; y++) {
+      
+      if (grid[y][col]==num) {
+
+        return false;
+      }
+
+    }
+
+//checking cell 3*3 end[8][8] start[6][6]
+
+    var startRow = row - row%3;
+    var startCol = col - col%3;
+
+    for(var m=0; m<3; m++){
+
+        for (var n = 0; n < 3; n++) {
+            
+            if (grid[m+startRow][n+startCol] == num) {
+
+                return false;
+            }
+
+        }
+    }
+    return true;
+
+
+}
+
+
+function checkAnswer(grid,e){
+       
+       var row = e.target.row;
+       var col = e.target.column;
+       var num = Number(e.data);
+       var id = e.target.id;
+       console.log(col);
+
+       if(num==''){
+
+        return false;
+
+       }
+
+        //Check for row
+
+        for (var x=0; x<9; x++) {
+        
+        if(grid[row][x]==num) {
+
+           showColors('red',id);
+            return false;
+        }
+
+    }
+
+    //check for column
+
+    for (var y=0; y<9; y++) {
+      
+      if (grid[y][col]==num) {
+
+        showColors('red',id);
+        return false;
+      }
+
+    }
+
+
+
+    var startRow = row - row%3;
+    var startCol = col - col%3;
+
+    for(var m=0; m<3; m++){
+
+        for (var n=0; n<3; n++) {
+            
+            if (grid[m+startRow][n+startCol]==num) {
+
+                showColors('red',id);
+                return false;
+            }
+
+        }
+    }
+
+    showColors('green',id);
+    return true;
+
+
+    }
+
+
+
+function showColors(color,id){
+
+    var inp= document.getElementById(id)
+
+    if (color=='red') {
+
+        inp.style.color='red';
+    }
+    else{
+
+        inp.style.color='green';
+
+    }
+
+}
+
+
+    function createGrid() {
+    var container = document.getElementById('container');
+
+
+    for(var i=0; i<9; i++)
+    {
+      
+        for(var j=0; j<9; j++)
+        {
+            var input = document.createElement('input');
+            //Generate id
+            input.id=`${i}${j}`
+
+            var number = Math.ceil(Math.random()*9);
+            // console.log('num',number);
+
+  //add values inside i/p boxes
+    // input.value=number;
+
+            input.row=i;
+
+            input.column=j;
+
+//repetation isssafe - func to check if no is repeated
+
+            if (isSafe(sudoku,i,j,number)) {
+
+                input.value=number;
+                input.readOnly=true;
+
+            }
+
+            //If repeated
+            
+            else{
+
+                number=0;
+
+                input.value= '';
+            }
+
+            sudoku[i][j] = number;
+
+            container.appendChild(input);
+
+            //Accept i/p event listener to check if val is correct or not
+
+            input.oninput = function(e){
+
+               checkAnswer(sudoku,e);
+
+            }
+            
+            //Generate random number
+
+        }
+    }
+    console.log('sudoku:',sudoku);
+}
+createGrid();
+
+// isSafe(sudoku,i,j,number);
+</script>
